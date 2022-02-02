@@ -1,0 +1,50 @@
+{
+    "name": "owenvoke/laravel-api-check",
+    "type": "library",
+    "description": "A simple, standardised authentication check URL for Laravel APIs",
+    "license": "MIT",
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "illuminate/support": "^8.82 || ^9.0",
+        "spatie/laravel-package-tools": "^1.11"
+    },
+    "require-dev": {
+        "nunomaduro/larastan": "^1.0",
+        "orchestra/testbench": "^6.24 || ^7.0",
+        "pestphp/pest": "^1.21.1",
+        "symfony/var-dumper": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "OwenVoke\\LaravelApiCheck\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OwenVoke\\LaravelApiCheck\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test:types": "phpstan analyse --ansi --memory-limit=-1",
+        "test:unit": "pest --colors=always",
+        "test": [
+            "@test:types",
+            "@test:unit"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extras": {
+        "laravel": {
+            "providers": [
+                "OwenVoke\\LaravelApiCheck\\CheckServiceProvider"
+            ]
+        }
+    }
+}
